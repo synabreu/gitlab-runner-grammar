@@ -1,0 +1,34 @@
+# Task02: Gitlab CI Stages
+
+# 1. Add 3 stages pre-check, build, test
+# 2. Configure 3 jobs CI_Pre_Check , CI_Build , CI_Test which will be using pre-check stage, 
+# and build stage and test stage respectively.
+# 3. Copy the script section and tags of CI_Build job in CI_Pre_Check and CI_Test jobs
+
+
+stages: #1
+    - pre-check
+    - build
+    - test
+
+CI_Pre_Check: #2
+    stage: pre-check #3
+    image: docker
+    script:
+        - echo "Pre Check"
+        - docker images
+
+CI_Build: #2
+    stage: build
+    image: docker
+    script:
+        - echo "Building"
+        - docker images
+
+CI_Test: #2
+    stage: test
+    image: docker
+    script:
+        - echo "Testing"
+        - docker images
+
