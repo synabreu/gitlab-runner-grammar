@@ -1,0 +1,14 @@
+# Task01 : Setup CI build stage
+
+stages:
+    - build
+
+CI_Build:
+    stage: build
+    image: docker
+    tags:
+        - CI
+        - Devops
+    script:
+        - echo "Building"
+        - docker images
