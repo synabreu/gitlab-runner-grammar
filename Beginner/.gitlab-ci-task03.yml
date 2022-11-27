@@ -1,0 +1,33 @@
+# Task 03 : Gitlab CI Jobs and Scripts
+
+# 1. Update CI_Pre_Check job script to validate docker version on the runner machine
+# 2. Update CI_Pre_Check job script to list all the running docker containers
+# 3. Update CI_Pre_Check job script to list all the docker images
+
+stages:
+    - pre-check
+    - build
+    - test
+
+CI_Pre_Check:
+    stage: pre-check
+    image: docker
+    script:
+        - docker version # # 1.check docker version
+        - docker ps # 2.list all the running docker containers
+        - docker images ls # 3.list all the docker images
+    
+CI_Build:
+    stage: build
+    image: docker
+    script:
+        - echo "Building"
+        - docker images
+  
+CI_Test:
+    stage: test
+    image: docker
+    script:
+        - echo "Testing"
+        - docker images
+
