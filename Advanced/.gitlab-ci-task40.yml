@@ -1,0 +1,10 @@
+# Task 40 - Gitlab CI Environments
+
+# 1. Create a new Environment with name "Testing" in your Gitlab project , 
+# select Deployments > Environments -> New Environment.
+# 2. Setup External URL value as http:// YOUR_GITLAB_RUNNER_IP
+# copy public ip on aws ec2
+
+
+
+
