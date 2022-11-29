@@ -11,23 +11,22 @@ stages: #1
     - build
     - test
 
+image: docker:latest
+
 CI_Pre_Check: #2
     stage: pre-check #3
-    image: docker
     script:
         - echo "Pre Check"
         - docker images
 
 CI_Build: #2
     stage: build
-    image: docker
     script:
         - echo "Building"
         - docker images
 
 CI_Test: #2
     stage: test
-    image: docker
     script:
         - echo "Testing"
         - docker images
