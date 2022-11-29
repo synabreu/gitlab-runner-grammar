@@ -1,0 +1,29 @@
+# Task 06 - Gitlab CI Jobs and Scripts
+
+# 1. Update CI_Test job script to list the running docker containers
+# 2. Update CI_Test job script to list the docker images
+
+stages:
+    - pre-check
+    - build
+    - test
+
+image: docker:latest
+
+CI_Pre_Check:
+    stage: pre-check
+    script:
+        - docker version 
+        - docker ps 
+        - docker images ls 
+     
+CI_Build:
+    stage: build
+    script:
+        - docker build -t testimage .
+  
+CI_Test:
+    stage: test
+    script:
+        - docker ps #1
+        - docker images #2
