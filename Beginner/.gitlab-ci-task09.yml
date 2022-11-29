@@ -1,0 +1,34 @@
+# Task09
+# 1. Update your CI_Build job script to configure docker image name as your Gitlab Project Name
+# 2. Use Gitlab Predefined Environment Varaible "CI_PROJECT_NAME" as docker image name in your Gitlab CI Pipeline
+
+stages:
+    - pre-check
+    - build
+    - test
+
+image: docker:latest
+
+CI_Pre_Check:
+    stage: pre-check
+    only: 
+      - main
+    script:
+      - docker version 
+      - docker ps 
+      - docker images ls 
+     
+CI_Build:
+    stage: build
+    only:
+      - main
+    script:
+      - docker build -t $CI_PROJECT_NAME:$CI_PIPELINE_IID . # 1
+  
+CI_Test:
+    stage: test
+    only:
+      - main
+    script:
+      - docker ps
+      - docker images
