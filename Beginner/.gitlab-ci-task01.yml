@@ -3,12 +3,10 @@
 stages:
     - build
 
+image: docker:latest
+
 CI_Build:
     stage: build
-    image: docker
-    tags:
-        - CI
-        - Devops
     script:
         - echo "Building"
         - docker images
