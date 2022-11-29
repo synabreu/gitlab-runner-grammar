@@ -1,0 +1,56 @@
+# Task 14 - Setup Multiple Jobs
+
+# 1. Add a new job "CI_Build_V2" under "build" stage.
+# 2. Copy all the configurations (only, tags, script etc.) from CI_Build Job into CI_Build_V2 Job.
+
+stages:
+    - pre-check
+    - build
+    - test
+
+image: docker:latest
+
+CI_Pre_Check:
+    stage: pre-check
+    only: 
+      - main
+    script:
+      - docker version 
+      - docker ps 
+      - docker images ls 
+     
+CI_Build:
+    stage: build
+    only:
+      - main
+    variables:  
+      - Image_Name : "devops-image"
+    before_script:
+      - echo "Build Started"
+    script:
+      - docker build -t $Image_Name:$CI_PIPELINE_IID . 
+    after_script:
+      - docker images
+
+# 1.Setup Multiple Jobs on "Build" stage 2. Copy them
+CI_Build_V2:
+    stage: build
+    only:
+      - main
+    variables:  
+      - Image_Name : "devops-image"
+    before_script:
+      - echo "Build Started"
+    script:
+      - docker build -t $Image_Name:$CI_PIPELINE_IID . 
+    after_script:
+      - docker images
+
+CI_Test:
+    stage: test
+    only:
+      - main
+    script:
+      - docker ps
+      - docker images
+
