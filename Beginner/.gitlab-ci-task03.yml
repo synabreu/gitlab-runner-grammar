@@ -9,9 +9,10 @@ stages:
     - build
     - test
 
+image: docker:latest
+
 CI_Pre_Check:
     stage: pre-check
-    image: docker
     script:
         - docker version # # 1.check docker version
         - docker ps # 2.list all the running docker containers
@@ -19,14 +20,12 @@ CI_Pre_Check:
     
 CI_Build:
     stage: build
-    image: docker
     script:
         - echo "Building"
         - docker images
   
 CI_Test:
     stage: test
-    image: docker
     script:
         - echo "Testing"
         - docker images
