@@ -1,0 +1,63 @@
+# Task 22 - Gitlab CI Rules
+
+# 1. Remove the "userdump" command from Before_Script section of CI_Build Job
+# 2. Remove "Only: main" condition from CI_Build Job.
+# 3. Add Rules section in CI_Build Job, using If condition verify if commit branch name is "main" 
+# and if any changes are done in Dockerfile or not. 
+# So, basically if the branch name is main and changes are made to Dockerfile 
+# then only CI_Build Job will be created and executed else not.
+
+stages:
+    - pre-check
+    - build
+    - test
+
+image: docker:latest
+
+CI_Pre_Check:
+    stage: pre-check
+    only: 
+      - main
+    allow_failure: true 
+    script:
+      - docker version 
+      - docker ps 
+      - docker images ls 
+      - sleep 20  # wait a job during 20 seconds
+     
+CI_Build:
+    stage: build
+    needs: [] 
+    retry: 2
+    rules: #3
+      - if: $CI_COMMIT_BRANCH == "main"
+        changes:
+            - Dockerfile
+    before_script:
+      - echo "Build CI_Build Started"
+      - sleep 10
+    script:
+      - docker build -t $Image_Name:$CI_PIPELINE_IID . 
+    after_script:
+      - docker images
+
+CI_Build_V2:
+    stage: build
+    only:
+      - main
+    needs: [CI_Pre_Check] 
+    before_script:
+      - echo "Build CI_Build_V2 Started"
+      - sleep 10
+    script:
+      - docker build -t $Image_Name_V2:$CI_PIPELINE_IID . 
+    after_script:
+      - docker images
+
+CI_Test:
+    stage: test
+    only:
+      - main
+    script:
+      - docker ps
+      - docker images
