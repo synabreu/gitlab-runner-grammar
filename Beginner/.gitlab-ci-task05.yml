@@ -1,0 +1,28 @@
+# Task 05
+# 1. build the docker image using Dockerfile
+
+stages:
+    - pre-check
+    - build
+    - test
+
+image: docker:latest
+
+CI_Pre_Check:
+    stage: pre-check
+    script:
+        - docker version 
+        - docker ps 
+        - docker images ls 
+     
+CI_Build:
+    stage: build
+    script:
+        - docker build -t testimage .
+  
+CI_Test:
+    stage: test
+    script:
+        - echo "Testing"
+
+
