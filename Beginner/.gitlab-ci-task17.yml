@@ -1,0 +1,56 @@
+# Task 17 - Gitlab CI Allow Job Failure
+# lets say we are ok to have any failure in the CI_Pre_Check Job, 
+# and want to continue the pipeline execution even if CI_Pre_Check Job got failed. 
+# So try to handle this request within your pipeline. 
+
+
+stages:
+    - pre-check
+    - build
+    - test
+
+image: docker:latest
+
+CI_Pre_Check:
+    stage: pre-check
+    only: 
+      - main
+    allow_failure: true # To ignore Job Failure
+
+    script:
+      - docker version 
+      - docker ps 
+      - docker images ls 
+      - userdump # To get Job Failure
+     
+CI_Build:
+    stage: build
+    only:
+      - main
+    before_script:
+      - echo "Build CI_Build Started"
+    script:
+      - docker build -t $Image_Name:$CI_PIPELINE_IID . 
+    after_script:
+      - docker images
+
+# Setup Multiple Jobs on "Build" stage
+CI_Build_V2:
+    stage: build
+    only:
+      - main
+    before_script:
+      - echo "Build CI_Build_V2 Started"
+    script:
+      - docker build -t $Image_Name_V2:$CI_PIPELINE_IID . 
+    after_script:
+      - docker images
+
+CI_Test:
+    stage: test
+    only:
+      - main
+    script:
+      - docker ps
+      - docker images
+
