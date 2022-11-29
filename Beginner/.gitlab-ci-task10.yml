@@ -1,0 +1,34 @@
+# Task 10
+# 1. Add Gitlab User Defined Variable "Image_Name : devops-image" in the CI_Build Job.
+# 2. Update your CI_Build job script to use User Defined Variable Image_Name as your docker image name.
+
+stages:
+    - pre-check
+    - build
+    - test
+
+image: docker:latest
+
+CI_Pre_Check:
+    stage: pre-check
+    only: 
+      - main
+    script:
+      - docker version 
+      - docker ps 
+      - docker images ls 
+     
+CI_Build:
+    stage: build
+    only:
+      - main
+    variables: # 1. User-defined 
+      - Image_Name : "devops-image"
+    script:
+      - docker build -t $Image_Name:$CI_PIPELINE_IID . 
+  
+CI_Test:
+    stage: test
+    script:
+      - docker ps
+      - docker images
