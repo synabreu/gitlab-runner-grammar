@@ -1,0 +1,34 @@
+# Task08
+# 1. add tag while building the docker image
+# 2. Use Gitlab Predefined Environment Varaible "CI_PIPELINE_IID" as tag number in your Gitlab CI Pipeline
+
+stages:
+    - pre-check
+    - build
+    - test
+
+image: docker:latest
+
+CI_Pre_Check:
+    stage: pre-check
+    only: 
+      - main
+    script:
+      - docker version 
+      - docker ps 
+      - docker images ls 
+     
+CI_Build:
+    stage: build
+    only:
+      - main
+    script:
+      - docker build -t testimage:$CI_PIPELINE_IID . #2
+  
+CI_Test:
+    stage: test
+    only:
+      - main
+    script:
+      - docker ps
+      - docker images
