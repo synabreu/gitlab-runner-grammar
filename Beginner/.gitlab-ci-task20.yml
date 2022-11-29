@@ -1,0 +1,66 @@
+# Task 20 - GitLab CI Needs
+
+# Using Needs we need to add dependency of CI_Pre_Check job on CI_Build_V2 job, 
+# so once CI_Pre_Check job succeeded, our CI_Build_V2 job will get triggered.
+
+# Reference: https://docs.gitlab.com/ee/ci/yaml/
+# 1. Needs: 이전 단계의 모든 작업이 완료될 때까지 기다리지 않고 필요한 작업이 완료되면 Job을 실행합니다. (Independency)
+#           이를 통해 needs Job이 완료되면 트리거(trigger) 되기 전에 작업을 트리거할 수 있습니다.
+#           Execute jobs earlier than the stage ordering.
+# 2. dependencies: 현재 작업을 위해 가져와야 하는 이전 작업의 아티팩트를 선택합니다. 
+#               예를 들어, 테스트 결과 아티팩트 대신 바이너리 아티팩트만 가져오는 이미지 빌드 작업 등이 있다. 
+#               Restrict which artifacts are passed to a specific job by providing a list of jobs to fetch artifacts from.
+
+
+
+stages:
+    - pre-check
+    - build
+    - test
+
+image: docker:latest
+    
+CI_Pre_Check:
+    stage: pre-check
+    only: 
+      - main
+    allow_failure: true 
+    script:
+      - docker version 
+      - docker ps 
+      - docker images ls 
+      - sleep 20  
+     
+CI_Build:
+    stage: build
+    only:
+      - main
+    needs: [] 
+    before_script:
+      - echo "Build CI_Build Started"
+      - sleep 10
+    script:
+      - docker build -t $Image_Name:$CI_PIPELINE_IID . 
+    after_script:
+      - docker images
+
+CI_Build_V2:
+    stage: build
+    only:
+      - main
+    needs: [CI_Pre_Check] 
+    before_script:
+      - echo "Build CI_Build_V2 Started"
+      - sleep 10
+    script:
+      - docker build -t $Image_Name_V2:$CI_PIPELINE_IID . 
+    after_script:
+      - docker images
+
+CI_Test:
+    stage: test
+    only:
+      - main
+    script:
+      - docker ps
+      - docker images
