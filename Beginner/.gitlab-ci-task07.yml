@@ -1,0 +1,36 @@
+# Task07
+# Configure the GitLab CI Pipeline to get triggered with Only "Main" Branch, 
+# and no other branch can trigger the pipeline.
+
+stages:
+    - pre-check
+    - build
+    - test
+
+image: docker:latest
+
+CI_Pre_Check:
+    stage: pre-check
+    only: 
+      - main #1
+    script:
+      - docker version 
+      - docker ps 
+      - docker images ls 
+     
+CI_Build:
+    stage: build
+    only:
+      - main #1
+    script:
+      - docker build -t testimage .
+  
+CI_Test:
+    stage: test
+    only:
+      - main #1
+    script:
+      - docker ps
+      - docker images
+
+
