@@ -1,0 +1,59 @@
+# Task 21 - Gitlab CI Retry
+
+# 1. Update Before_Script section of CI_Build Job, and add a one more command "userdump"
+# 2. Since there no "userdump" command in linux, our CI_Build Job will be failed. 
+#    But we want our CI_Build job to retry atleast 2 times before it got failed.
+
+stages:
+    - pre-check
+    - build
+    - test
+
+image: docker:latest
+
+CI_Pre_Check:
+    stage: pre-check
+    only: 
+      - main
+    allow_failure: true 
+    script:
+      - docker version 
+      - docker ps 
+      - docker images ls 
+      - sleep 20  
+     
+CI_Build:
+    stage: build
+    only:
+      - main
+    needs: [] 
+    retry: 2 # 2
+    before_script:
+      - echo "Build CI_Build Started"
+      - sleep 10
+      - userdump # 1  
+    script:
+      - docker build -t $Image_Name:$CI_PIPELINE_IID . 
+    after_script:
+      - docker images
+
+CI_Build_V2:
+    stage: build
+    only:
+      - main
+    needs: [CI_Pre_Check] 
+    before_script:
+      - echo "Build CI_Build_V2 Started"
+      - sleep 10
+    script:
+      - docker build -t $Image_Name_V2:$CI_PIPELINE_IID . 
+    after_script:
+      - docker images
+
+CI_Test:
+    stage: test
+    only:
+      - main
+    script:
+      - docker ps
+      - docker images
