@@ -1,0 +1,69 @@
+# Task 25 - Gitlab CI Parallel
+
+# 1. Run the CI_Build job 2 times in parallel at same time.
+
+default: 
+  timeout: 1 hour
+
+stages:
+    - pre-check
+    - build
+    - test
+
+CI_Pre_Check:
+    stage: pre-check
+    image: docker
+    services:
+      - docker:dind
+    only: 
+      - main
+    allow_failure: true 
+    script:
+      - docker version 
+      - docker ps 
+      - docker images ls 
+      - sleep 20  
+     
+CI_Build:
+    stage: build
+    image: docker
+    services:
+      - docker:dind
+    needs: [] 
+    retry: 2
+    only: 
+      - main
+    parallel: 2 # 1
+    before_script:
+      - echo "Build CI_Build Started"
+      - sleep 10
+    script:
+      - docker build -t $Image_Name:$CI_PIPELINE_IID . 
+    after_script:
+      - docker images
+
+CI_Build_V2:
+    stage: build
+    image: docker
+    services:
+      - docker:dind
+    only:
+      - main
+    needs: [CI_Pre_Check] 
+    before_script:
+      - echo "Build CI_Build_V2 Started"
+      - sleep 10
+    script:
+      - docker build -t $Image_Name_V2:$CI_PIPELINE_IID . 
+    after_script:
+      - docker images
+
+CI_Test:
+    stage: test
+    image: docker
+    only:
+      - main
+    when: manual #3
+    script:
+      - docker ps
+      - docker images
