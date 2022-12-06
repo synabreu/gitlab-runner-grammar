@@ -25,6 +25,9 @@
 ### 문법자료
 
 1. [Advanced configuration:](https://docs.gitlab.com/runner/configuration/advanced-configuration.html#the-runnersmachine-section)
+2. [.gitlab-ci.yml keyword reference](https://docs.gitlab.com/ee/ci/yaml/)
+3. [Gitlab CI/CD Examples](https://docs.gitlab.com/ee/ci/examples/index.html)
+4. [How to deploy Maven projects to Artifactory with GitLab CI/CD
 
 ### 참고자료
 
@@ -48,3 +51,5 @@
 18. [Create a Jenkins Pipeline](https://about.gitlab.com/handbook/customer-success/demo-systems/tutorials/integrations/create-jenkins-pipeline/)
 19. [Autoscaling GitLab CI on AWS Fargate](https://docs.gitlab.com/runner/configuration/runner_autoscale_aws_fargate/)
 20. [Autoscaling GitLab Runner on AWS EC2](https://docs.gitlab.com/runner/configuration/runner_autoscale_aws/)
+21. [How to deploy Maven projects to Artifactory with GitLab CI/CD](https://gitlab.com/gitlab-examples/maven/simple-maven-example/?_gl=1%2apuexq9%2a_ga%2aMjM1MzMzMzguMTY2ODQ4ODczOA..%2a_ga_ENFH3X7M5Y%2aMTY2OTI3OTIxNS4yNy4xLjE2NjkyNzk5MzguMC4wLjA.)
+
