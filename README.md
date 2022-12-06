@@ -4,4 +4,21 @@
 
 또한 wiki, 문제 추적, IDE 및 CI/CD 파이프라인 기능이 포함되어 있어 쉽고 편리하게 사용할 수 있습니다. GitHub와 마찬가지로 정적 웹페이지를 호스팅하기 위한 무료 GitLab Pages 제품도 제공하며 버전 12.1 이후 HTTPS 지원을 위한 Let's Encrypt 옵션도 제공합니다.
 
-결론적으로 말해서, 이 문서는 Gitlab 을 사용하기 위한 여러가지 설치, 환경 구성과 깃랩 명령어 문법 등을 정리해 놓았습니다. 참고로 깃랩 명령어 문법은 [초급(Beginner)](https://github.com/synabreu/gitlab-runner-grammar/tree/main/Beginner/beginner.md), 중급(Advanced), 도커(Docker) 등을 사용할 수 있도록 서브 폴더로 나누어 놓았습니다.  
+결론적으로 말해서, 이 문서는 Gitlab 을 사용하기 위한 여러가지 설치, 환경 구성과 깃랩 명령어 문법 등을 정리해 놓았습니다. 참고로 깃랩 명령어 문법은 [초급(Beginner)](https://github.com/synabreu/gitlab-runner-grammar/tree/main/Beginner/beginner.md), 중급(Advanced), 도커(Docker) 등을 사용할 수 있도록 서브 폴더로 나누어 놓았습니다. 
+
+### 설치방법
+
+
+
+
+
+### 참고자료
+
+1. [Deploying Your App With ECS & Gitlab CI/CD] (https://medium.com/swlh/deploying-your-app-with-ecs-gitlab-ci-cd-e211e6f103e1)
+2. [Gentle Introduction to How AWS ECS Works with Example Tutorial](https://medium.com/boltops/gentle-introduction-to-how-aws-ecs-works-with-example-tutorial-cea3d27ce63d)
+3. [Push your Docker containers from GitLab to Amazon ECR](https://devops.cisel.ch/push-your-docker-containers-from-gitlab-to-amazon-ecr)
+4. [Implementing Alternate CI/CD Pipeline using AWS and GitLab](https://blog.searce.com/implementing-alternate-ci-cd-pipeline-using-aws-and-gitlab-874968515601)
+5. [How to Configure your own GitLab Runner with a Docker Executor on AWS EC2](https://medium.com/devops-with-valentine/how-to-configure-your-own-gitlab-runner-with-a-docker-executor-on-aws-ec2-d76c7be0660d)
+6. [Using Gitlab CI with AWS Container Registry](https://medium.com/@stijnbe/using-gitlab-ci-with-aws-container-registry-ecaf4a37d791)
+7. [Configuring .gitlab-ci.yml with AWS EC2 for Continuous Integration (CI) or Continuous Deplyment (CD)](https://medium.com/hackernoon/configuring-gitlab-ci-yml-150a98e9765d)
+8. [How to deploy with Gitlab-Ci to EC2 using AWS CodeDeploy/CodePipeline/S3](https://stackoverflow.com/questions/38671818/how-to-deploy-with-gitlab-ci-to-ec2-using-aws-codedeploy-codepipeline-s3/38672045#38672045)
