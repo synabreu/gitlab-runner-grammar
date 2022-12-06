@@ -8,7 +8,18 @@
 
 ### 설치방법
 
+사용자 운영체제에 맞게 GitLab 과 GitLab Runner 를 설치할 수 있습니다. 초보자들에게는 깃랩 도커 이미지를 사용하기를 추천드립니다. 
 
+1. [Install GitLab Docker images](https://docs.gitlab.com/ee/install/docker.html)
+2. [Install Kubernetes](https://docs.gitlab.com/operator/)
+3. [Install GitLab Runner on macOS](https://docs.gitlab.com/runner/install/osx.html)
+4. [Install GitLab Runner on Windows](https://docs.gitlab.com/runner/install/windows.html)
+5. [Run GitLab Runner in a container](https://docs.gitlab.com/runner/install/docker.html)
+
+로컬 환경에 설치하지 않고 클라우드 서비스 프로바이더(CSP)에 설치하는 방법은 다음과 같습니다.
+
+1. [Install AWS implementation patterns](https://docs.gitlab.com/ee/install/aws/?_gl=1*tks52v*_ga*MjM1MzMzMzguMTY2ODQ4ODczOA..*_ga_ENFH3X7M5Y*MTY3MDI5MDYxNS40Mi4xLjE2NzAyOTMwMjkuMC4wLjA.)
+2. [Install official Linux Package](https://about.gitlab.com/install/#amazonlinux-2)
 
 
 
