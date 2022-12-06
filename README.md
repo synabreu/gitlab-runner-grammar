@@ -14,7 +14,7 @@
 
 ### 참고자료
 
-1. [Deploying Your App With ECS & Gitlab CI/CD] (https://medium.com/swlh/deploying-your-app-with-ecs-gitlab-ci-cd-e211e6f103e1)
+1. [Deploying Your App With ECS & Gitlab CI/CD](https://medium.com/swlh/deploying-your-app-with-ecs-gitlab-ci-cd-e211e6f103e1)
 2. [Gentle Introduction to How AWS ECS Works with Example Tutorial](https://medium.com/boltops/gentle-introduction-to-how-aws-ecs-works-with-example-tutorial-cea3d27ce63d)
 3. [Push your Docker containers from GitLab to Amazon ECR](https://devops.cisel.ch/push-your-docker-containers-from-gitlab-to-amazon-ecr)
 4. [Implementing Alternate CI/CD Pipeline using AWS and GitLab](https://blog.searce.com/implementing-alternate-ci-cd-pipeline-using-aws-and-gitlab-874968515601)
@@ -22,3 +22,5 @@
 6. [Using Gitlab CI with AWS Container Registry](https://medium.com/@stijnbe/using-gitlab-ci-with-aws-container-registry-ecaf4a37d791)
 7. [Configuring .gitlab-ci.yml with AWS EC2 for Continuous Integration (CI) or Continuous Deplyment (CD)](https://medium.com/hackernoon/configuring-gitlab-ci-yml-150a98e9765d)
 8. [How to deploy with Gitlab-Ci to EC2 using AWS CodeDeploy/CodePipeline/S3](https://stackoverflow.com/questions/38671818/how-to-deploy-with-gitlab-ci-to-ec2-using-aws-codedeploy-codepipeline-s3/38672045#38672045)
+9. [Event-driven architecture for using third-party Git repositories as source for AWS CodePipeline](https://aws.amazon.com/ko/blogs/devops/event-driven-architecture-for-using-third-party-git-repositories-as-source-for-aws-codepipeline/)
+10. [Deploy and Manage Gitlab Runners on Amazon EC2](https://aws.amazon.com/ko/blogs/devops/deploy-and-manage-gitlab-runners-on-amazon-ec2/)
