@@ -18,8 +18,11 @@
 
 로컬 환경에 설치하지 않고 클라우드 서비스 프로바이더(CSP)에 설치하는 방법은 다음과 같습니다.
 
-1. [Install AWS implementation patterns](https://docs.gitlab.com/ee/install/aws/?_gl=1*tks52v*_ga*MjM1MzMzMzguMTY2ODQ4ODczOA..*_ga_ENFH3X7M5Y*MTY3MDI5MDYxNS40Mi4xLjE2NzAyOTMwMjkuMC4wLjA.)
-2. [Install official Linux Package](https://about.gitlab.com/install/#amazonlinux-2)
+1. [Install GitLab on AWS using the community AMIs provided by GitLab - AWS implementation patterns](https://docs.gitlab.com/ee/install/aws/?_gl=1*tks52v*_ga*MjM1MzMzMzguMTY2ODQ4ODczOA..*_ga_ENFH3X7M5Y*MTY3MDI5MDYxNS40Mi4xLjE2NzAyOTMwMjkuMC4wLjA.)
+2. [Install amazon linux 2, CentOS 2, as official Linux Package](https://about.gitlab.com/install/#amazonlinux-2)
+3. [Install GitLab on AWS using the community AMIs provided by GitLab](https://docs.gitlab.com/ee/install/google_cloud_platform/index.html)
+4. [Install GitLab on Microsoft Azure](https://docs.gitlab.com/ee/install/azure/index.html)
+5. 
 
 
 
