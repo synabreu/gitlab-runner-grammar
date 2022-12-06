@@ -10,7 +10,7 @@
 | 3|                   Jobs 및 Scripts 설정|     .gitlab-ci-task03.yml|
 | 5|                   도커 이미지 Build 설정|     .gitlab-ci-task05.yml|
 | 6|실행하고 있는 도커 컨테이너 및 도커 이미지 리스트|     .gitlab-ci-task06.yml|
-| 7|Build Stage 설정|.gitlab-ci-task07.yml|
+| 7|                 Only "Main" 브랜치 설정|     .gitlab-ci-task07.yml|
 | 8|Build Stage 설정|.gitlab-ci-task08.yml|
 | 9|Build Stage 설정|.gitlab-ci-task09.yml|
 |10|Build Stage 설정|.gitlab-ci-task10.yml|
