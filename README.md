@@ -27,7 +27,7 @@
 1. [Advanced configuration:](https://docs.gitlab.com/runner/configuration/advanced-configuration.html#the-runnersmachine-section)
 2. [.gitlab-ci.yml keyword reference](https://docs.gitlab.com/ee/ci/yaml/)
 3. [Gitlab CI/CD Examples](https://docs.gitlab.com/ee/ci/examples/index.html)
-4. [How to deploy Maven projects to Artifactory with GitLab CI/CD
+
 
 ### 참고자료
 
